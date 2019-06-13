@@ -1,10 +1,11 @@
-::root {
-
+:root {
+  font-family: 'Rubik', sans-serif;
+  --pinnedHeight: 3rem;
 }
 
 body {
   grid-gap: 1rem;
-  height: 100vh;
+  height: calc(100vh - 5%);
   text-decoration: none;
   color: #333;
   margin: 0;
@@ -14,7 +15,8 @@ body {
 nav {
   top: 0;
   position: fixed;
-  height: 3em;
+  height: var(--pinnedHeight);
+  z-index: 2;
 }
 
 .mobile__list {
@@ -77,26 +79,68 @@ nav {
 
 main {
   display: grid;
-  grid-area: main;
-  grid-auto-rows: min-content;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  place-content: top;
   background-color: #f1f1f1;
-  padding:1em 0;
+  padding: calc(var(--pinnedHeight) * 1.25) var(--pinnedHeight);
+  height: calc(100% - var(--pinnedHeight));
   grid-gap: 1em;
+  width: calc(100vw - 5%);
+  height: 85vh;
+  overflow: auto;
+}
+
+main::-webkit-scrollbar {
+  width: 5px;
+  color: aqua;
 }
 
 card {
+  position: relative;
+  height: min-content;
   display: grid;
-  grid-template-rows: 1fr 2fr 2fr;
-  grid-template-columns: 100%;
+  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-columns: minmax(min-content, 300px);
+  grid-template-areas:
+  "image"
+  "header"
+  "content";
   grid-gap: 1rem;
-  place-items: center;
+  place-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
   background-color: #ffffff;
-  margin: 0 1em;
+  z-index: 1;
+  text-align: center;
 }
 
 .card__header {
   display: grid;
   place-items: center;
+  grid-area: header;
+  font-family: 'Gentium Basic', serif;
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  grid-area: image;
+  display: grid;
+  place-items: center;
+}
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.card__text {
+  grid-area: content;
+  font-family: 'Rubik', sans-serif;
 }
 
 i {
@@ -109,7 +153,7 @@ footer {
   position: fixed;
   z-index: 1;
   bottom: 0;
-  height: 4em;
+  height: var(--pinnedHeight);
   width: 100%;
   backface-visibility: hidden;
 }
