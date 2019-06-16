@@ -7,7 +7,14 @@
   --secondaryColor: rgb(244,67,54);
   --secondaryColorDarker: rgb(186,0,13);
   --secondaryColorLighter: rgb(255,121,97);
-  --font-size: 18.667px;
+  --fontSize: 16px;
+  --xSmallFont: 0.65em;
+  --smallFont: 0.8333em;
+  --normalFont: 1em;
+  --largeFont: 1.125em;
+  --xLargeFont: 1.5em;
+  --xxLargeFont: 2em;
+  --titleFont: 6em;
 }
 
 body {
@@ -18,7 +25,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  font-size: calc();
+  font-size: var(--fontSize);
   overflow: hidden;
 }
 
@@ -65,26 +72,10 @@ nav {
   border-bottom: 0.1rem solid black;
   border-top: 0.1rem solid black;
 }
-.list-item::before {
-  position: absolute;
-  content: '';
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0),  0 -0.3rem 0.5rem rgba(0, 0, 0, 0);
-  transition-property: box-shadow;
-  transition-duration: 200ms;
-  z-index: -1;
-}
-
-.list-item:hover::before {
-  box-shadow: 0 0.3rem 0.5rem -0.3rem rgba(0, 0, 0, 1),  0 -0.3rem 0.5rem -0.3rem rgba(0, 0, 0, 1);
-}
-
 .style__nav {
   background-color: #f1f1f1;
   width: 100%;
+  background-color: var(--primaryColor);
 }
 
 main {
@@ -92,12 +83,12 @@ main {
   grid-template-rows: repeat(auto-fit, minmax(min-content, 500px));
   grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
   place-content: top;
-  background-color: #f1f1f1;
+  background-color: var(--primaryColorLighter);
   padding: calc(var(--pinnedHeight) * 1.25) var(--pinnedHeight);
   grid-gap: 1rem;
   max-width: 95vw;
   height: calc(100vh - var(--pinnedHeight));
-  overflow: auto;
+  overflow: hidden;
 }
 
   main::-webkit-scrollbar {
@@ -127,6 +118,7 @@ main {
     .card__header {
       display: grid;
       place-items: center;
+      font-size: var(--xxLargeFont);
       grid-area: header;
       font-family: 'Gentium Basic', serif;
     }
@@ -151,11 +143,13 @@ main {
     .card__text {
       grid-area: content;
       font-family: 'Rubik', sans-serif;
+      max-width: 20em;
     }
 
 i {
   font-size: 2em;
   display: relative;
+  color: var(--secondaryColorDarker);
 }
 
 footer {
