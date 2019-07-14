@@ -62,17 +62,54 @@ a {
     display: grid;
     top: 0;
     left: 0;
-    right: 12rem;
     z-index: -10;
     place-content: center;
   }
 
   #menu-list, #menu-list ul{
+    position: relative;
     list-style-type: none;
     display: grid;
     grid-auto-flow: row;
-    margin: 0 auto;
     row-gap: 4rem;
+    color: var(--primaryColorDarker);
+  }
+
+  #menu-list li {
+    width: 20rem;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  #menu-list a {
+    text-decoration: none;
+    color: var(--primaryColorDarker);
+    padding-top: 2rem;
+    padding-left: 2rem;
+  }
+
+  .collapsable {
+    position: relative;
+    left: 0;
+  }
+
+  .collapsable > ul {
+    position: relative;
+    padding-top: 2rem;
+  }
+
+  #menu-list ::before{
+    position: relative;
+    left: -10px;
+    top: 5px;
+    font-size: var(--smallFont);
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+    color: var(--secondaryColor);
+  }
+
+  .collapsable a {
+    color: var(--secondaryColorDarker)!important;
   }
 
   #menu-button {
@@ -80,6 +117,7 @@ a {
     font-family: 'lato', serif;
     place-self: start;
     left: 0.4rem;
+    top: 10px;
   }
 
   .nav svg {
