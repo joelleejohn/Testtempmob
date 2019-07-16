@@ -1,0 +1,295 @@
+/*
+  No media query here as this is a mobile first design
+*/
+
+:root {
+  font-family: 'Rubik', sans-serif;
+  --pinnedHeight: 3rem;
+  --primaryColor: rgb(25,118,210);
+  --primaryColorDarker: rgb(0,75,160);
+  --primaryColorLighter: rgb(225, 225, 225);
+  --secondaryColor: rgb(244,67,54);
+  --secondaryColorDarker: rgb(186,0,13);
+  --secondaryColorLighter: rgb(255,121,97);
+  --fontSize: 12px;
+  --xSmallFont: 0.65em;
+  --smallFont: 0.8333em;
+  --normalFont: 1em;
+  --largeFont: 1.125em;
+  --xLargeFont: 1.5em;
+  --xxLargeFont: 2em;
+  --titleFont: 6em;
+  --cardGridSingleColumn:
+  "title" 2rem
+  "middle" 6rem
+  "lower" 3rem / 1fr;
+  --mainContentGrid: ". content ." 1fr / 1rem 1fr 1rem;
+}
+
+body {
+  text-decoration: none;
+  color: #333;
+  font-size: var(--fontSize);
+  background-color: transparent;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* Main content area */
+main {
+  position: relative;
+  background-color: white;
+  display: grid;
+  grid:
+  "header" 2rem
+  "main" auto
+  "footer" 5rem / 1fr;
+  overflow-x: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  transition: transform .4s linear,
+              opacity .2s linear .2s,
+              visibility 0s linear .4s;
+  transition-timing-function: ease-in-out, linear, linear;
+}
+
+/* Navigation */
+header {
+  top: 0;
+  position: fixed;
+  height: var(--pinnedHeight);
+  z-index: 2;
+  grid-area: header;
+}
+
+menu {
+  position: relative;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  place-content: center;
+}
+
+#menu-list, #menu-list ul{
+  position: relative;
+  list-style-type: none;
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 2rem;
+  color: var(--primaryColorDarker);
+}
+
+#menu-list li {
+  width: 20rem;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+#menu-list a {
+  text-decoration: none;
+  color: var(--primaryColorDarker);
+}
+
+.collapsable {
+  position: relative;
+  left: 0;
+}
+
+.collapsable > ul {
+  position: relative;
+  padding-top: 2rem;
+}
+
+.collapsable a {
+  position: relative;
+  margin-left: 2rem;
+}
+
+.collapsable a:hover {
+  color: var(--primaryColorDarker) !important;
+}
+
+#menu-list ::before{
+  position: relative;
+  left: -10px;
+  top: 5px;
+  font-size: var(--smallFont);
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  color: var(--secondaryColor);
+}
+
+.collapsable a {
+  color: var(--secondaryColorDarker)!important;
+}
+
+#menu-button {
+  position: relative;
+  font-family: 'lato', serif;
+  place-self: start;
+  left: 0.4rem;
+  top: 10px;
+}
+
+.nav svg {
+  position: relative;
+  transform: rotate(90deg) scaleX(-1.2);
+  color: var(--primaryColor);
+}
+
+a:hover svg {
+  color: var(--secondaryColor)
+}
+
+.burger {
+  display: grid;
+  width: 100;
+  grid-auto-flow: column;
+  column-gap: 1rem;
+  width: 100%;
+  left: 0;
+  position: absol;
+}
+
+.nav {
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100%;
+  width: 100%;
+  z-index: 1;
+  list-style-type: none;
+  position: fixed;
+  height: inherit;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1),  0 -0.25rem 0.25rem rgba(0, 0, 0, 0.15);
+  left: 0;
+  right: 0;
+  background-color: #f1f1f1;
+}
+  .nav > ul {
+    height: 2rem;
+    z-index: 1;
+    position: fixed;
+  }
+
+  .nav > a {
+    text-decoration: none;
+  }
+  .list-item {
+    width: 100%;
+    position: relative;
+    display: grid;
+    place-content: center;
+    height: 100%;
+  }
+/* Navigation end */
+features {
+  grid-area: content;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(200px, 250px));
+  grid-template-columns: 1fr;
+  place-items: center;
+  row-gap: 1rem;
+  width: 100vw;
+}
+/* Feature card with a centalised image */
+card {
+  position: relative;
+  height: 15rem;
+  display: grid;
+  grid: var(--cardGridSingleColumn);
+  width: 200px;
+  row-gap: 0.5rem;
+  place-content: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  z-index: 0;
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--primaryColorLighter);
+  cursor: pointer;
+}
+  .card__header {
+    font-size: var(--largeFont);
+    grid-area: title;
+    font-family: 'Rubik', serif;
+    color: rgba(0, 0, 0, 1);
+    opacity: 1;
+    width: 100%;
+    height: 2em;
+    margin: 0;
+    word-wrap: none;
+    margin: 0;
+    padding: 0;
+  }
+  .card__img {
+    object-fit: cover;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    grid-column: title-start / title-end;
+    grid-row: middle-start / lower-end;
+    z-index: -1;
+  }
+  .card__text {
+    background-color: var(--secondaryColor);
+    grid-area: lower;
+    font-family: 'Rubik', sans-serif;
+    max-width: 20em;
+    height: 100%;
+    width: 100%;
+    padding-top: 1rem;
+    opacity: 0;
+    transition: opacity 100ms ease-in, background-color 150ms ease-out;
+    z-index: 10;
+  }
+    card:hover > .card__text {
+      color: rgba(0, 0, 0, 1);
+      opacity: 1;
+      transition: opacity 100ms ease-out, background-color 150ms ease-out;
+    }
+/* Feature card end */
+
+/* Footer start */
+footer {
+  margin: 1rem 0;
+  width: 100vw;
+  background: #333;
+  display: flex;
+}
+
+.footer-list {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: max-content;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 0;
+  height: min-content;
+  place-content: center;
+}
+
+.footer-list-item {
+  display: grid;
+  place-content: center;
+  grid-auto-rows: 1.5rem;
+  row-gap: 0.5rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.footer-list-item span {
+  color: whitesmoke;
+  font-size: var(--largeFont);
+}
+.footer-list-item a {
+  color: bisque;
+}
+/* Footer end */

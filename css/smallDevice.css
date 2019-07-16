@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@media (min-width: 576px){ /* small devices */
+/* Main display items */
+
+
+  menu {
+    display: grid;
+  }
+}
+/*  */

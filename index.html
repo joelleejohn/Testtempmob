@@ -5,20 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  <link rel="stylesheet" href="material-design-helpers.css">
-  <title>Temptest</title>
 
+  <link rel="stylesheet" href="css/misc.css">
+  <link rel="stylesheet" href="css/smallDevice.css">
+  <link rel="stylesheet" href="css/xSmallDevice.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/menuTransformation.css">
+  <link rel="stylesheet" href="css/material-design-helpers.css">
+  <title>Home - Temptest</title>
 </head>
 <body>
     <menu id="menu">
+      <div id="menu-hide">
+        <a href="javascript:void(0)" onclick="resetMainClass()"><i class="fas fa-times-circle"></i></a>
+      </div>
       <ul id="menu-list">
         <li><a href="index.html"><i class="fas fa-igloo"></i>Home</a></li>
-        <li class="collapsable"><i class="fas fa-tools"></i>Products
+        <li class="collapsable"><i class="fas fa-chevron-down"></i>Products
           <ul>
             <li><a href="sensors.html">Sensors</a></li>
-            <li><a href="#">Thermowells, Fittngs & Transistors</a></li>
+            <li><a href="tft.html">Thermowells, Fittngs & Transistors</a></li>
             <li><a href="#">Cable</a></li>
             <li><a href="#">Instrumentation</a></li>
             <li><a href="#">Connectors</a></li>
@@ -29,70 +36,90 @@
         <li><a href="#"><i class="fas fa-newspaper"></i>News</a></li>
       </ul>
     </menu>
-    <main>
-      <header>
-          <ul class="nav">
-            <a id="menu-button" onclick="toggleNavigationMenu()">
-              <li class="list-item burger">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-                <span id="menu-help-text">Menu</span>
-              </li></a>
-            <a href="index.html"><li class="list-item"><i class="fas fa-temperature-low company-color"></i></li></a>
-          </ul>
-        </header>
-      <features>
-        <a class="hide-link" href="#">
-          <card class="material-shadow">
-              <h2 class="card__header">Sensors</h2>
-              <img class="card__img" src="img/sensors.png">
-              <p class="card__text">View Products</p>
-          </card>
-        </a>
-        <a class="hide-link"href="#">
-          <card class="material-shadow">
-            <h2 class="card__header">Thermowells, Fittings & Transistors</h2>
-            <img class="card__img" src="img/thermowellsfittingstransmitters.png">
+  <main>
+    <header>
+      <ul class="nav">
+        <a id="menu-button" onclick="toggleNavigationMenu()">
+          <li class="list-item burger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+            <span id="menu-help-text">Menu</span>
+          </li></a>
+        <a href="index.html"><li class="list-item"><i class="fas fa-temperature-low company-color"></i></li></a>
+      </ul>
+    </header>
+    <features>
+      <a class="hide-link" href="sensors.html">
+        <card class="material-shadow">
+            <h2 class="card__header">Sensors</h2>
+            <img class="card__img" srcset="
+              img/sensors/sensors-low.jpg 200w,
+              img/sensors/sensors-high.jpg 300w"
+              src="img/sensors/sensors-low.jpg">
             <p class="card__text">View Products</p>
-          </card>
-        </a>
-        <a href="#" class="hide-link">
-          <card class="material-shadow">
-            <h2 class="card__header">Cable</h2>
-            <img class="card__img" src="img/cables.png">
-            <p class="card__text">View Products</p>
-          </card>
-        </a>
-        <a href="#" class="hide-link">
-          <card class="material-shadow">
-            <h2 class="card__header">Instrumentation</h2>
-            <img class="card__img" src="img/instrumentation.png">
-            <p class="card__text">View Products</p>
-          </card>
-        </a>
-        <a href="#" class="hide-link">
-          <card class="material-shadow">
-            <h2 class="card__header">Connectors</h2>
-            <img class="card__img" src="img/connectors.png">
-            <p class="card__text">View Products</p>
-          </card>
-        </a>
-        <a href="#" class="hide-link">
-          <card class="material-shadow">
-            <h2 class="card__header">Technical Stuff</h2>
-            <img src="https://unsplash.it/300/150">
-            <p class="card__text">More Information</p>
-          </card>
-        </a>
-      </main>
+        </card>
+      </a>
+      <a class="hide-link"href="#">
+        <card class="material-shadow">
+          <h2 class="card__header">Thermowells, Fittings & Transistors</h2>
+          <img class="card__img" srcset="
+          img/tft/tft-low.jpg 200w,
+          img/tft/tft-high.jpg 300w"
+          src="img/tft/tft-low.jpg" alt="Thermowells, fittings and transistors">
+          <p class="card__text">View Products</p>
+        </card>
+      </a>
+      <a href="#" class="hide-link">
+        <card class="material-shadow">
+          <h2 class="card__header">Cable</h2>
+          <img class="card__img" srcset="
+          img/cables/cables-low.jpg 200w,
+          img/cables/cables-high.jpg 300w"
+          src="img/cables/cables-low.jpg" alt="Electrical cables" >
+          <p class="card__text">View Products</p>
+        </card>
+      </a>
+      <a href="#" class="hide-link">
+        <card class="material-shadow">
+          <h2 class="card__header">Instrumentation</h2>
+          <img class="card__img" srcset="
+          img/instrum/instrum-low.jpg 200w,
+          img/instrum/instrum-high.jpg 300w"
+          src="img/instrum/instrum-low.jpg" alt="Electric instrumentation">
+          <p class="card__text">View Products</p>
+        </card>
+      </a>
+      <a href="#" class="hide-link">
+        <card class="material-shadow">
+          <h2 class="card__header">Connectors</h2>
+          <img class="card__img" srcset="
+          img/connectors/connectors-low.jpg 200w,
+          img/connectors/connectors-high.jpg 300w"
+          src="img/connectors/connectors-low.jpg" alt="Connectors">
+          <p class="card__text">View Products</p>
+        </card>
+      </a>
+      <a href="#" class="hide-link">
+        <card class="material-shadow">
+          <h2 class="card__header">Technical Stuff</h2>
+          <img id="svgInfo" src="img/incon-finder-info.svg" alt="Technical information">
+          <p class="card__text">More Information</p>
+        </card>
+      </a>
+    </main>
     </features>
     </main>
     <footer>
-        <ul class="nav">
-          <li class="list-item style__nav"><i class="fas fa-phone"></i></li>
-          <li class="list-item style__nav"><i class="fas fa-at"></i></li>
-          <li class="list-item style__nav"><i class="far fa-share-square"></i></li>
+        <ul class="footer-list">
+          <li class="footer-list-item"><i class="fas fa-phone"></i>
+            <span>Call: +44 (0) 1903 714140</span>
+            <span>Fax: +44 (0) 1903 717435</span>
+          </li>
+          <li class="footer-list-item"><i class="fas fa-at"></i>
+            <span>Email: <a href="mailto:sales@testemp.co.uk">sales@testemp.co.uk</a></span>
+          </li>
+          <li class="footer-list-item share-button" onclick="mobileShareDialog()"><i class="far fa-share-square"></i><span>Share this page</span></li>
         </ul>
     </footer>
-<script src="script.js"></script>
+<script src="scripts/script.js"></script>
 </body>
 </html>
