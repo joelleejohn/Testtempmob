@@ -1,16 +1,1 @@
-@media (min-width: 1024px){
-  :root {
-    --fontSize: 16px;
-  }
-
-  features {
-    -ms-grid-columns: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: calc(100vw - 8rem);
-    row-gap: 4rem;
-  }
-
-  .footer-list {
-    grid-auto-flow: column;
-  }
-}
+@media (min-width:1024px){:root{--fontSize:16px}features{-ms-grid-columns:1fr 1fr 1fr;grid-template-columns:1fr 1fr 1fr;width:calc(100vw - 8rem);row-gap:4rem}.footer-list{grid-auto-flow:column}}

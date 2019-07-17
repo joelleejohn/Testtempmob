@@ -1,11 +1,1 @@
-@media (min-width: 576px){ /* small devices */
-  /* Main display items */
-    :root {
-      --fontSize: 12px;
-    }
-
-    features {
-      -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+@media (min-width:576px){:root{--fontSize:12px}features{-ms-grid-columns:1fr 1fr;grid-template-columns:1fr 1fr}}
