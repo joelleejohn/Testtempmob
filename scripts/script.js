@@ -1,8 +1,13 @@
-const mobileNavigationElement = document.getElementById("menu")
+const mobileNavElement = document.getElementById("menu");
 const mainElement = document.getElementsByTagName("main")[0];
-const mobileNavigationChildren = mobileNavigationElement.children;
+const mobileNavigationChildren = mobileNavElement.children;
 const mobileNavigationLength = mobileNavigationChildren.length;
+const mobileShareButton = document.getElementById("mobileShareButton");
 let oldScrollPositionY, oldScrollPositionX;
+
+if (navigator.share){
+    mobileShareButton.style.display = "grid";
+}
 
 function toggleClass(element, classToToggle){
     element.classList.toggle(classToToggle);
@@ -22,25 +27,25 @@ function toggleNavigationMenu() {
     toggleClass(mainElement, "menu-transform-body");
     setXyScroll();
     if (mainElement.classList.contains("menu-transform-body")){
-        if (mobileNavigationElement.style.display === ""){
-            mobileNavigationElement.style.display = "grid";
+        if (mobileNavElement.style.display === ""){
+            mobileNavElement.style.display = "grid";
         }
-        setZIndex(mobileNavigationElement, "10");
+        setZIndex(mobileNavElement, "10");
     }
     else {
-        if (mobileNavigationElement.style.display === "grid"){
+        if (mobileNavElement.style.display === "grid"){
             window.scrollTo(oldScrollPositionX, oldScrollPositionY);
-            mobileNavigationElement.style.display = "";
+            mobileNavElement.style.display = "";
         }
-        setZIndex(mobileNavigationElement, "-10");
+        setZIndex(mobileNavElement, "-10");
     }
 }
 
 function resetMainClass() {
     if (mainElement.classList.contains("menu-transform-body")){
-        mobileNavigationElement.style.display = "";
+        mobileNavElement.style.display = "";
         toggleClass(mainElement, "menu-transform-body");
-        setZIndex(mobileNavigationElement, "-10");
+        setZIndex(mobileNavElement, "-10");
         window.scrollTo(oldScrollPositionX, oldScrollPositionY);
     }
 }

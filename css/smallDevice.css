@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 @media (min-width: 576px){ /* small devices */
-/* Main display items */
+  /* Main display items */
+    :root {
+      --fontSize: 12px;
+    }
 
-
-  menu {
-    display: grid;
+    features {
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
   }
-}
-/*  */
